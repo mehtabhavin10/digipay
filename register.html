@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+  .modal-header, h4, .close {
+      background-color: #5cb85c;
+      color:white !important;
+      text-align: center;
+      font-size: 30px;
+  }
+  .modal-footer {
+      background-color: #f9f9f9;
+  }
+  </style>
+</head>
+<body>
+
+<div class="container">
+ 
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header" style="padding:35px 50px;">
+          
+          <h4><span class="glyphicon glyphicon-lock"></span> Sign Up</h4>
+        </div>
+        <div class="modal-body" style="padding:40px 50px;">
+
+
+          <form role="form" name="loginForm" method="post" action="php/register.php" onsubmit="return validateForm();">
+            <div class="form-group">
+              <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
+              <input type="text" class="form-control" id="usrname" name="username" placeholder="Enter email">
+            </div>
+
+	    <div class="form-group">
+              <label for="usr"><span class="glyphicon glyphicon-user"></span> Name </label>
+              <input type="text" class="form-control" id="usr" name="name" placeholder="User Full Name">
+            </div>
+
+       <div class="dropdown" style="margin-bottom:10px">
+                                                <a href="#" class="btn btn-success dropdown-toggle" data-toggle="dropdown" id="selectdept"> 
+                                                    Who are you?
+                                                    <b class="caret"></b>
+                                                </a>
+                                                
+                                                <ul class="dropdown-menu" id="deptlist">
+                                                    <li><a href="#">customer</a></li>
+                                                    <li><a href="#">merchant</a></li>
+                                                    
+                                                </ul>
+                                            </div>
+											<input type='hidden' name='userType'>
+
+
+            <div class="form-group">
+              <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
+              <input type="password" class="form-control" id="psw" name="password" placeholder="Enter password">
+            </div>
+
+           
+
+              <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Sign Up</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          
+          <p>Already have an account ? <a href="LoginPage.php">Sign In</a></p>
+          
+        </div>
+      </div>
+      
+    </div>
+  </div> 
+</div>
+ 
+<script>
+$(document).ready(function(){
+    
+        $("#myModal").modal();
+    
+});
+
+
+								$(function(){
+                                    
+                                    //Listen for a click on any of the dropdown items
+                                    $("#deptlist li ").click(function(){
+                                        //Get the value
+                                        var value = $(this).text();
+                                        
+                                        $('#selectdept').text(value).append(" <b class=\"caret\"></b>"); 
+                                        //Put the retrieved value into the hidden input
+                                       $("input[name='userType']").val(value);
+                                        //alert(value);
+                                    });
+                                    
+                                });
+
+</script>
+
+  <script>
+
+    function validateForm() {
+        
+        var username = document.forms["loginForm"]["username"].value;
+        var password = document.forms["loginForm"]["password"].value;
+        var name = document.forms["loginForm"]["name"].value;
+
+       if (username == "" || password == "" || name == "") {
+       
+            alert("Please enter valid details!");
+            return false;
+       
+       } else if (!validateEmail(username)) {
+
+            alert("Not a valid e-mail address");
+            return false;
+
+       } else if (password.length <= 6) {
+
+          alert("Password must be of minimum 7 characters");
+            return false;   
+       } else if (name.length <= 2) {
+
+          alert("Name must be of minimum 3 characters");
+            return false;   
+       } 
+    }
+
+    function validateEmail(email) {
+    
+        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    
+        return re.test(String(email).toLowerCase());
+    }
+  </script>
+
+</body>
+</html>

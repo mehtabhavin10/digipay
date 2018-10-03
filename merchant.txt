@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Digi Pay</title>
+</head>
+<body>
+
+<form action="https://digipaym.000webhostapp.com/LoginPage.php" method="POST">
+
+<!-- Amount: -->
+<input type="hidden" name="amount" value="Pass the amount from your Page here...."> <br>
+
+<!-- Merchant Username: -->
+<input type="hidden" name="merchant" value="Pass your username here...."> <br>
+
+<!-- Merchant AccNo: -->
+<input type="hidden" name="acc_no" value="Pass your account no here...."> <br>
+
+<input type="submit" value="Submit">
+
+</form>
+
+</body>
+</html>

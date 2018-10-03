@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Digi Pay</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+  .modal-header, h4, .close {
+      background-color: #5cb85c;
+      color:white !important;
+      text-align: center;
+      font-size: 30px;
+  }
+  .modal-footer {
+      background-color: #f9f9f9;
+  }
+  .panel-default>.panel-heading {
+    color: #333;
+    background-color: #5cb85c;
+    border-color: #ddd;
+}
+  .modal{
+    margin-top: 2%;
+  }
+  .panel-title{
+    margin: 10px;
+  }
+  </style>
+</head>
+<body>
+
+<div class="container" bgColor="white">
+ 
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+	
+  <div class="panel-group" id="accordion">
+    
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Credit Card</a>
+        </h4>
+      </div>
+      <div id="collapse1" class="panel-collapse collapse in" >
+        <div class="panel-body">
+
+        <form role="form" name="payment_info" method="POST" action="http://localhost:8089/e_com/Payment/php/process_request.php">
+            <div class="form-group">
+              <label for="usrname"><span class="glyphicon glyphicon-user"></span>DIGIPAY Username</label>
+              <input type="email" class="form-control" id="usrname" placeholder="digipayuser@domain.com" name="username" >
+            </div>
+            <div class="form-group">
+              <label for="regname"><span class="glyphicon glyphicon-user"></span>Registered Name</label>
+              <input type="text" class="form-control" id="regname" placeholder="Registered Name" name="name" pattern="[A-Za-z]{0,}">
+            </div>
+            <div class="form-group">
+              <label for="acc_no"><span class="glyphicon glyphicon-user"></span>Account Number</label>
+              <input type="number" class="form-control" id="acc_no" placeholder="1234567890123456" name="acc_no"
+              value="0000-0000-0000-0000" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '0000-0000-0000-0000';}" required="" pattern="-?[0-9]*(\.[0-9]+)?">
+            </div>
+            <div class="form-group">
+              <label for="cvv"><span class="glyphicon glyphicon-user"></span>CVV</label>
+              <input type="number" class="form-control" id="cvv" placeholder="00/00" name="cvv"
+              value="00/00" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '00/00';}" required=""
+            maxlength="5" pattern="-?[0-9]*(\.[0-9]+)?">
+            </div>
+            <input type="hidden" name="paymentType" value="credit_card">
+            <button type="submit" name="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-transfer"></span> Transfer</button>
+        </form>  
+
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Netbanking</a>
+        </h4>
+      </div>
+      <div id="collapse2" class="panel-collapse collapse">
+        <div class="panel-body">
+
+<form role="form" name="payment_info" method="POST" action="http://localhost:8089/e_com/Payment/php/process_request.php">
+            <div class="form-group">
+              <label for="usrname"><span class="glyphicon glyphicon-user"></span>DIGIPAY Username</label>
+              <input type="email" class="form-control" id="usrname" placeholder="digipayuser@domain.com" name="username">
+            </div>
+            <div class="form-group">
+              <label for="usrname"><span class="glyphicon glyphicon-user"></span>Bank Name</label>
+              <input type="text" class="form-control" id="usrname" placeholder="Reserve Bank of India" name="name" >
+            </div>
+            <div class="form-group">
+              <label for="usrname"><span class="glyphicon glyphicon-user"></span>Account Number</label>
+              <input type="number" class="form-control" id="usrname" placeholder="1234567890123456" name="acc_no"
+              value="0000-0000-0000-0000" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '0000-0000-0000-0000';}" required="" pattern="-?[0-9]*(\.[0-9]+)?">
+            </div>
+            <input type="hidden" name="paymentType" value="net_banking">
+            <button type="submit" name="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-transfer"></span> Transfer</button>
+        </form>  
+
+
+        </div>
+    </div>
+  </div>
+  
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">PayTM</a>
+        </h4>
+      </div>
+      <div id="collapse3" class="panel-collapse collapse">
+        <div class="panel-body">
+        <form role="form" name="payment_info" method="POST" action="http://localhost:8089/e_com/Payment/php/process_request.php">
+            <div class="form-group">
+              <label for="phone"><span class="glyphicon glyphicon-user"></span>Phone Number</label>
+              <input type="number" class="form-control" id="phone" min="5000000000" max="9999999999" placeholder="1234567890" name="acc_no"
+              value="0123456789" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '0000-0000-0000-0000';}" required=""
+                     pattern="-?[0-9]*(\.[0-9]+)?">
+            </div>
+            <div class="form-group">
+              <label for="acc"><span class="glyphicon glyphicon-user"></span>Account Number</label>
+              <input type="number" class="form-control" id="acc" placeholder="Account Number" name="acc_no"
+              value="0000-0000-0000-0000" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '0000-0000-0000-0000';}" required="" pattern="-?[0-9]*(\.[0-9]+)?">
+            </div>
+            
+            <input type="hidden" name="paymentType" value="paytm">
+            <button type="submit" name="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-transfer"></span> Transfer</button>
+        </form>  
+
+        </div>
+      </div>
+    </div>
+  
+   <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title" >
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">Debit Card</a>
+        </h4>
+      </div>
+      <div id="collapse4" class="panel-collapse collapse" >
+        <div class="panel-body">
+        <form role="form" name="payment_info" method="POST" action="http://localhost:8089/e_com/Payment/php/process_request.php">
+            <div class="form-group">
+              <label for="usrname"><span class="glyphicon glyphicon-user"></span>DIGIPAY Username</label>
+              <input type="email" class="form-control" id="usrname" placeholder="digipayuser@domain.com" name="username">
+            </div>
+            <div class="form-group">
+              <label for="regname"><span class="glyphicon glyphicon-user"></span>Registered Name</label>
+              <input type="text" class="form-control" id="regname" placeholder="Registered Name" name="name" pattern="[A-Za-z]{0,}">
+            </div>
+            <div class="form-group">
+              <label for="acc_no"><span class="glyphicon glyphicon-user"></span>Account Number</label>
+              <input type="number" class="form-control" id="acc_no" placeholder="Account Number" name="acc_no"
+              value="0000-0000-0000-0000" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '0000-0000-0000-0000';}" required="" pattern="-?[0-9]*(\.[0-9]+)?">
+            </div>
+            <div class="form-group">
+              <label for="cvv"><span class="glyphicon glyphicon-user"></span>CVV</label>
+              <input type="number" class="form-control" id="cvv" placeholder="00/00" name="cvv"
+              value="00/00" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '00/00';}" required=""
+            maxlength="5" pattern="-?[0-9]*(\.[0-9]+)?">
+            </div>
+            <input type="hidden" name="paymentType" value="debit_card">
+            <button type="submit" name="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-transfer"></span> Transfer</button>
+        </form>  
+        </div>
+      </div>
+    </div>
+      <!-- -->
+      
+    </div>
+  </div> 
+</div>
+ 
+<script>
+$(document).ready(function(){
+    
+        $("#myModal").modal();
+    
+});
+</script>
+    
+</body>
+</html>

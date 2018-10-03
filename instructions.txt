@@ -1,0 +1,38 @@
+Steps for Customers to use Digi Pay Payment Method:
+
+1. Go to: "https://digipaym.000webhostapp.com/", Click on "Want to Sign In ?" link and then click on "Not a member ?" link.
+
+2. Enter valid credentials and register to our site.
+
+3. Once registered, login to Digi Pay and note your account no & username.
+
+4. Whenever you want to Pay or transact just login.
+
+5. Whenever you want to check your balance and all transactions, go to: "https://digipaym.000webhostapp.com/LoginPage.php" and login with your credentials.
+
+6. That's It!
+
+7. Thank You for visiting our Website.
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+Steps for Merchant's to use Digi Pay Payment Method:
+
+1. Go to: "https://digipaym.000webhostapp.com/", Click on "Want to Sign In ?" link and then click on "Not a member ?" link.
+
+2. Enter valid credentials and register to our site.
+
+3. Once registered, login to Digi Pay and note your account no & username.
+
+4. Go to: "https://digipaym.000webhostapp.com/merchant.txt", copy the whole <form> tag and paste in your website where the user is going to checkout for payment. Pass the amount to be paid by the customer, your username and your account number through the form.
+
+5. Whenever you want to check your balance and all transactions, go to: "https://digipaym.000webhostapp.com/LoginPage.php" and login with your credentials.
+
+6. That's It!
+
+7. Thank You for visiting our Website.

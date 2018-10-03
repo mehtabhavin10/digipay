@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Digi Pay</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+  .modal-header, h4, .close {
+      background-color: #5cb85c;
+      color:white !important;
+      text-align: center;
+      font-size: 30px;
+  }
+  .modal-footer {
+      background-color: #f9f9f9;
+  }
+  </style>
+</head>
+<body>
+
+<div class="container">
+ 
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header" style="padding:35px 50px;">
+          
+          <h4><span class="glyphicon glyphicon-lock"></span> Money Transfer</h4>
+        </div>
+        <div class="modal-body" style="padding:40px 50px;">
+          <form role="form" name="loginForm" method="POST" action="LoginPage.php" onsubmit="return validateForm();">
+            <div class="form-group">
+              <label for="usrname"><span class="glyphicon glyphicon-usd"></span> Amount</label>
+              <input type="Number" class="form-control" id="usrname" placeholder="Enter Amount"
+              name="amount" min="100" max="10000000">
+            </div>
+            <div class="form-group">
+              <label for="usrname"><span class="glyphicon glyphicon-user"></span>Merchant's Username</label>
+              <input type="email" class="form-control" id="usrname" placeholder="user@domain.com"
+              name="merchant">
+            </div>
+            <div class="form-group">
+              <label for="usrname"><span class="glyphicon glyphicon-pencil"></span>Merchant's Account Number
+              </label>
+              <input type="number" class="form-control" id="usrname" placeholder="Merchant's Account Number"
+              name="acc_no">
+            </div>
+
+            
+              <button type="submit" name="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-transfer"></span> Transfer</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          
+        </div>
+      </div>
+      
+    </div>
+  </div> 
+</div>
+ 
+<script>
+$(document).ready(function(){
+    
+        $("#myModal").modal();
+    
+});
+
+
+    function validateForm() {
+        
+        var amount = document.forms["loginForm"]["amount"].value;
+        var username = document.forms["loginForm"]["merchant"].value;
+        var acc_no = document.forms["loginForm"]["acc_no"].value;
+
+       if (username == "" || amount == 0 || acc_no == 0 ) {
+       
+            alert("Please enter valid details!");
+            return false;
+       
+       } else if (!validateEmail(username)) {
+
+            alert("Not a valid e-mail address");
+            return false;
+
+       } else if (acc_no.length != 16) {
+
+          alert("Account No must be of 16 characters");
+            return false;   
+       } 
+    }
+
+    function validateEmail(email) {
+    
+        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    
+        return re.test(String(email).toLowerCase());
+    }
+
+  </script>
+</body>
+</html>
