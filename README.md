@@ -1,10 +1,10 @@
 # DigiPay
 > Custom Payment Gateway
 
-![](ss/login.jpg?raw=true)
-![](ss/signup.jpg?raw=true)
-![](ss/payment.jpg?raw=true)
-![](ss/dashboard.jpg?raw=true)
+![](/ss/login.jpg?raw=true)
+![](/ss/signup.jpg?raw=true)
+![](/ss/payment.jpg?raw=true)
+![](/ss/dashboard.jpg?raw=true)
 
 
 ## About
