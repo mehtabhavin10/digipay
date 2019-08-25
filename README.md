@@ -1,10 +1,10 @@
 # DigiPay
 > Custom Payment Gateway
 
-![](https://github.com/mehtabhavin10/digipay/tree/master/ss/login.jpg)
-![](https://github.com/mehtabhavin10/digipay/tree/master/ss/signup.jpg)
-![](https://github.com/mehtabhavin10/digipay/tree/master/ss/payment.jpg)
-![](https://github.com/mehtabhavin10/digipay/tree/master/ss/dashboard.jpg)
+![](ss/login.jpg?raw=true)
+![](ss/signup.jpg?raw=true)
+![](ss/payment.jpg?raw=true)
+![](ss/dashboard.jpg?raw=true)
 
 
 ## About
