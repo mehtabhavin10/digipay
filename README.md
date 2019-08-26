@@ -1,15 +1,21 @@
 # DigiPay
 > Custom Payment Gateway
 
+
+
+## About
+
+DigiPay is a custom payment gateway, which was a mini project developed to allow other e-commerce websites to accept payments from customers and manage their wallets.
+
+
+
 ![](/ss/login.JPG)
 ![](/ss/signup.JPG)
 ![](/ss/payment.JPG)
 ![](/ss/dashboard.JPG)
 
 
-## About
 
-DigiPay is a custom payment gateway, which was a mini project developed to allow other e-commerce websites to accept payments from customers and manage their wallets.
 
 
 ## Features
